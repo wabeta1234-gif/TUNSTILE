@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production && \
+RUN npm install --omit=dev && \
     npx playwright install chromium --with-deps
 
 # Production stage
